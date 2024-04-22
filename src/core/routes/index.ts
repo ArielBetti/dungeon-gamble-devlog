@@ -1,4 +1,4 @@
 export const ROUTE = {
   HOME: "/",
-  POST: "/post"
+  POST: "post"
 }
