@@ -17,6 +17,12 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('src/assets/dwalls.jpeg')"
+      },
+      fontFamily: {
+        sans: ["JetBrains Mono"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -73,5 +79,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require("tailwindcss-animate")
+  ],
 }

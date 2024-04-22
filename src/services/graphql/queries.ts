@@ -1,33 +1,41 @@
-import { gql } from "@apollo/client";
+import { ApolloQueryResult, gql } from "@apollo/client";
 import { client } from "./client";
+import { IGetPost, IGetPosts } from "./types";
 
-export const getPosts = client.query({
+export const getPosts: Promise<ApolloQueryResult<IGetPosts>> = client.query({
   query: gql`
-    {
-      user(login: "arielbetti") {
-        repository(owner: "arielbetti", name: "dungeon-gamble-devlog") {
-          issues {
-            edges{
-              node {
-                number,
-                title,
-              }
-            }
+  {
+    repository(owner: "ArielBetti", name: "dungeon-gamble-devlog") {
+      issues(first: 10, orderBy: { field: CREATED_AT, direction: DESC }) {
+        edges {
+          node {
+            number
+            title,
+            id,
+            createdAt,
+            updatedAt
           }
         }
       }
+    }
+  }  
   `,
 });
 
-export const getPost = (id: number) => client.query({
+export const getPost: (number: number) => Promise<ApolloQueryResult<IGetPost>> = (number: number) => client.query({
   query: gql`
   {
-    repository(owner: "arielbetti", name: "dungeon-gamble-devlog") {
-      issue(number: ${id}) {
-        number
-        title
-        createdAt
-        body
+    repository(owner: "ArielBetti", name: "dungeon-gamble-devlog") {
+      issue(number: ${number}) {
+        author {
+          login,
+          avatarUrl
+        },
+        title,
+        body,
+        id,
+        createdAt,
+        updatedAt,
       }
     }
   }
