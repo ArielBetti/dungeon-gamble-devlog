@@ -8,6 +8,12 @@ export const queryGetPost = (number: number) => {
       const { data } = await getPost(number);
 
       const result = {
+        createdAt: data.repository.issue.createdAt,
+        updatedAt: data.repository.issue.updatedAt,
+        author: {
+          img: data.repository.issue.author.avatarUrl,
+          name: data.repository.issue.author.login,
+        },
         title: data.repository.issue.title,
         body: data.repository.issue.body,
       }
