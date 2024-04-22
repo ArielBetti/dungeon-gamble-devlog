@@ -9,7 +9,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    env:
+        VITE_DGAMBLE_LOG: ${{ secrets.VITE_DGAMBLE_LOG }}
+        VITE_GITHUB_ACCESS_TOKEN: ${{ secrets.VITE_GITHUB_ACCESS_TOKEN }}
+        
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -31,9 +34,6 @@ jobs:
         with:
           name: production-files
           path: ./dist
-    env:
-        VITE_DGAMBLE_LOG: ${{ secrets.VITE_DGAMBLE_LOG }}
-        VITE_GITHUB_ACCESS_TOKEN: ${{ secrets.VITE_GITHUB_ACCESS_TOKEN }}
   deploy:
     name: Deploy
     needs: build
