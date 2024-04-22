@@ -19,6 +19,7 @@ function Home() {
       <section className="flex flex-col items-start justify-start pt-10 gap-5">
         {data?.posts.map((item) =>
           <CardPost
+            key={item.title + item.createdAt}
             createdAt={item.createdAt}
             number={item.number}
             title={item.title}
