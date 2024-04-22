@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('./assets/dwalls.jpeg')"
+        'hero-pattern': "url('/assets/dwalls.jpeg')"
       },
       fontFamily: {
         sans: ["JetBrains Mono"],
