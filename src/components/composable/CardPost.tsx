@@ -1,5 +1,3 @@
-import React from 'react'
-import { Button } from '../ui/button'
 import { normalizeDateWithYear } from '@/lib/utils'
 import scrollSpell from "../../assets/spellscroll.png";
 import { Separator } from '../ui/separator';

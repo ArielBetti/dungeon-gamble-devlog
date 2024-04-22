@@ -3,7 +3,7 @@ import { queryGetPosts } from "../queries/queryGetPosts";
 import owlbear from '../assets/owlbear.png';
 
 function Home() {
-  const { data, isLoading } = queryGetPosts();
+  const { data } = queryGetPosts();
 
   return (
     <main className="container px-4 max-w-2xl">
