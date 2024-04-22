@@ -1,9 +1,14 @@
 import { CardPost } from "../components/composable/CardPost";
 import { queryGetPosts } from "../queries/queryGetPosts";
 import owlbear from '../assets/owlbear.png';
+import Loading from "@/components/composable/Loading";
 
 function Home() {
-  const { data } = queryGetPosts();
+  const { data, isLoading, isFetching } = queryGetPosts();
+
+  if (isLoading || isFetching) {
+    return <Loading />
+  }
 
   return (
     <main className="container px-4 max-w-2xl">
