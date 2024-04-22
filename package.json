@@ -9,9 +9,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "codegen": "graphql-codegen --config codegen.ts",
-    "generate": "graphql-codegen",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "generate": "graphql-codegen"
   },
   "dependencies": {
     "@apollo/client": "^3.9.11",
